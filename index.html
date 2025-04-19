@@ -1,185 +1,48 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greasy Fork 镜像 官网主页 - ZGF</title>
-    <link href="/proxy.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Greasy Fork 镜像</div>
-            <nav>
-                <ul>
-                    <li><a href="#about">关于</a></li>
-                    <li><a href="#faq">常见问题</a></li>
-                    <li><a href="#contact">联系我们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Greasy Fork 镜像 脚本加速下载 官网主页 - ZGF</title><link href="/proxy.css" rel="stylesheet"></head><body><header><div class="container header-content"><div class="logo">Greasy Fork 镜像</div><nav><ul><li><a href="#about">关于</a></li><li><a href="#faq">常见问题</a></li><li><a href="#contact">联系我们</a></li></ul></nav></div></header><main class="container"><section class="hero animate-fade-in"><h1>Greasy Fork 镜像站</h1><p>提供稳定快速的用户脚本下载服务，解决访问问题，让Tampermonkey和油猴脚本安装更便捷</p><div class="button-group"><a href="https://www.coolapk.com/link/?url=https://greasyfork.org.cn/zh-hans" class="button primary-button external-link" target="_blank" rel="noopener noreferrer">进入镜像站</a><a href="#install" class="button secondary-button">如何安装</a></div></section><section><h2>镜像站特色功能</h2><div class="card-container"><div class="card animate-fade-in-up"><div class="feature-icon">⚡</div><h2>高速下载</h2><p>亚太服务器部署，脚本下载速度提升显著，告别访问缓慢的问题。</p></div><div class="card animate-fade-in-up delay-1"><div class="feature-icon">🔄</div><h2>完整同步</h2><p>与官方Greasy Fork保持实时同步，确保脚本版本最新、内容完整。</p></div><div class="card animate-fade-in-up delay-2"><div class="feature-icon">🔒</div><h2>安全可靠</h2><p>严格的安全检查机制，确保下载的脚本安全无害，保护您的浏览器环境。</p></div></div></section><section id="install" class="card animate-fade-in"><h2>如何安装用户脚本</h2><ol><li>确保已安装Tampermonkey或Violentmonkey等用户脚本管理器</li><li>在镜像站浏览或搜索您需要的脚本</li><li>点击脚本页面上的"安装"按钮</li><li>按照提示完成安装</li></ol><div class="button-group"><a href="https://www.tampermonkey.net/" class="button primary-button external-link" target="_blank" rel="noopener noreferrer">Tampermonkey</a><a href="https://violentmonkey.github.io/" class="button secondary-button external-link" target="_blank" rel="noopener noreferrer">Violentmonkey</a></div></section><section class="faq" id="faq"><h2>常见问题解答</h2><div class="faq-item animate-fade-in"><div class="faq-question"><span>镜像站与官方Greasy Fork有什么区别？</span><span class="faq-toggle">▼</span></div><div class="faq-answer"><p>镜像站内容与官方Greasy Fork保持同步，主要区别在于服务器位于亚太，访问速度更快。所有脚本内容、用户数据等都与官方一致。</p></div></div><div class="faq-item animate-fade-in"><div class="faq-question"><span>使用镜像站安装脚本安全吗？</span><span class="faq-toggle">▼</span></div><div class="faq-answer"><p>镜像站会确保内容未被篡改。我们建议用户保持警惕，只安装来自可信作者的脚本。</p></div></div></section></main><footer id="contact"><div class="container"><div class="footer-content"><div class="footer-column"><h3>快速链接</h3><ul><li><a href="#about">关于我们</a></li><li><a href="#faq">常见问题</a></li></ul></div><div class="footer-column"><h3>资源</h3><ul><li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a></li><li><a href="https://violentmonkey.github.io/" target="_blank" rel="noopener noreferrer">Violentmonkey</a></li><li><a href="https://greasyfork.org/" target="_blank" rel="noopener noreferrer">官方Greasy Fork</a></li></ul></div><div class="footer-column"><h3>联系我们</h3><ul><li><a href="https://github.com/greasyfork-mirror" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div></div><div class="copyright"><p>© 2023 Greasy Fork 镜像站. 本网站是Greasy Fork的社区镜像，所有脚本版权归作者所有.</p></div></div></footer><script>
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+link.addEventListener('click', function() {
+// Here you could add analytics tracking
+console.log('External link clicked:', this.href);
+});
+});
+});
 
-    <main class="container">
-        <section class="hero animate-fade-in">
-            <h1>Greasy Fork 镜像站</h1>
-            <p>提供稳定快速的用户脚本下载服务，解决访问问题，让Tampermonkey和油猴脚本安装更便捷</p>
-            <div class="button-group">
-                <a href="https://greasyfork.org.cn/zh-hans" class="button primary-button external-link" target="_blank" rel="noopener noreferrer">
-                    进入镜像站
-                </a>
-                <a href="#install" class="button secondary-button">
-                    如何安装
-                </a>
-            </div>
-        </section>
+document.querySelectorAll('.faq-question').forEach(question => {
+question.addEventListener('click', () => {
+const answer = question.nextElementSibling;
+const isActive = question.classList.contains('active');
 
-        <section>
-            <h2>镜像站特色功能</h2>
-            <div class="card-container">
-                <div class="card animate-fade-in-up">
-                    <div class="feature-icon">⚡</div>
-                    <h2>高速下载</h2>
-                    <p>亚太服务器部署，脚本下载速度提升显著，告别访问缓慢的问题。</p>
-                </div>
-                <div class="card animate-fade-in-up delay-1">
-                    <div class="feature-icon">🔄</div>
-                    <h2>完整同步</h2>
-                    <p>与官方Greasy Fork保持实时同步，确保脚本版本最新、内容完整。</p>
-                </div>
-                <div class="card animate-fade-in-up delay-2">
-                    <div class="feature-icon">🔒</div>
-                    <h2>安全可靠</h2>
-                    <p>严格的安全检查机制，确保下载的脚本安全无害，保护您的浏览器环境。</p>
-                </div>
-            </div>
-        </section>
+document.querySelectorAll('.faq-question').forEach(q => {
+if (q !== question) {
+q.classList.remove('active');
+q.nextElementSibling.style.display = 'none';
+}
+});
 
-        <section id="install" class="card animate-fade-in">
-            <h2>如何安装用户脚本</h2>
-            <ol>
-                <li>确保已安装Tampermonkey或Violentmonkey等用户脚本管理器</li>
-                <li>在镜像站浏览或搜索您需要的脚本</li>
-                <li>点击脚本页面上的"安装"按钮</li>
-                <li>按照提示完成安装</li>
-            </ol>
-            <div class="button-group">
-                <a href="https://www.tampermonkey.net/" class="button primary-button external-link" target="_blank" rel="noopener noreferrer">
-                    Tampermonkey
-                </a>
-                <a href="https://violentmonkey.github.io/" class="button secondary-button external-link" target="_blank" rel="noopener noreferrer">
-                    Violentmonkey
-                </a>
-            </div>
-        </section>
+if (isActive) {
+question.classList.remove('active');
+answer.style.display = 'none';
+} else {
+question.classList.add('active');
+answer.style.display = 'block';
+}
+});
+});
 
-        <section class="faq" id="faq">
-            <h2>常见问题解答</h2>
-            <div class="faq-item animate-fade-in">
-                <div class="faq-question">
-                    <span>镜像站与官方Greasy Fork有什么区别？</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>镜像站内容与官方Greasy Fork保持同步，主要区别在于服务器位于亚太，访问速度更快。所有脚本内容、用户数据等都与官方一致。</p>
-                </div>
-            </div>
-            <div class="faq-item animate-fade-in">
-                <div class="faq-question">
-                    <span>使用镜像站安装脚本安全吗？</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>镜像站会确保内容未被篡改。我们建议用户保持警惕，只安装来自可信作者的脚本。</p>
-                </div>
-            </div>
-        </section>
-    </main>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
 
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="#about">关于我们</a></li>
-                        <li><a href="#faq">常见问题</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>资源</h3>
-                    <ul>
-                        <li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a></li>
-                        <li><a href="https://violentmonkey.github.io/" target="_blank" rel="noopener noreferrer">Violentmonkey</a></li>
-                        <li><a href="https://greasyfork.org/" target="_blank" rel="noopener noreferrer">官方Greasy Fork</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>联系我们</h3>
-                    <ul>
-                        <li><a href="https://github.com/greasyfork-mirror" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2023 Greasy Fork 镜像站. 本网站是Greasy Fork的社区镜像，所有脚本版权归作者所有.</p>
-            </div>
-        </div>
-    </footer>
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
 
-    <script>
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // External link tracking
-            document.querySelectorAll('a[target="_blank"]').forEach(link => {
-                link.addEventListener('click', function() {
-                    // Here you could add analytics tracking
-                    console.log('External link clicked:', this.href);
-                });
-            });
-        });
-
-        // FAQ交互功能
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-                
-                // 关闭所有其他FAQ
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    if (q !== question) {
-                        q.classList.remove('active');
-                        q.nextElementSibling.style.display = 'none';
-                    }
-                });
-                
-                // 切换当前FAQ
-                if (isActive) {
-                    question.classList.remove('active');
-                    answer.style.display = 'none';
-                } else {
-                    question.classList.add('active');
-                    answer.style.display = 'block';
-                }
-            });
-        });
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth'
+});
+}
+});
+});
+</script></body></html>
